@@ -4,7 +4,7 @@
 
     <div class="row">
 
-        
+
         <card class="col-md-8" titulo="Formulario">
             <form (submit)="cadastraFoto($event)" [formGroup]="formCadastro">
                 <div class="form-group">
@@ -31,9 +31,13 @@
                     <textarea name="descricao" formControlName="descricao" class="form-control" [(ngModel)]="foto.descricao" id="descricao" placeholder="Não digite varios nada">
                     </textarea>
                 </div>
-                <button tyep="submit" class="btn btn-success" [disabled]="formCadastro.invalid">
+
+                <botao [desabilitado]="formCadastro.invalid"
+                  estilo="btn-success" tipo="submit"
+                  [nome]="labelBotao"></botao>
+                <!-- <button type="submit" class="btn btn-success" [disabled]="formCadastro.invalid">
                     {{ labelBotao }}
-                </button>
+                </button> -->
                 <a [routerLink]="['']" class="btn btn-primary">Voltar</a>
 
             </form>

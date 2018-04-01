@@ -1,3 +1,4 @@
+import { BotaoModule } from './components/botao/botao.module';
 import { FiltraPorTitulo } from './components/card/filtraPorTitulo.pipe';
 import { CardModule } from './components/card/card.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -19,6 +20,7 @@ import { Page404Component } from './pages/page404/page404.component';
 import { FotoService } from './service/Foto.service';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BotaoComponent } from './components/botao/botao.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     FotoModule,
     CardModule,
+    BotaoModule,
     TituloModule,
     HttpClientModule,
     roteamento
