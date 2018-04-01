@@ -28,7 +28,7 @@ export class CadastroComponent implements OnInit {
     this.foto.descricao = '';
     this.formCadastro = formBuilder.group({
       url: ['', Validators.compose([Validators.required])],
-      titulo: ['', Validators.compose([Validators.required, Validators.maxLength(4)])],
+      titulo: ['', Validators.compose([Validators.required, Validators.maxLength(100)])],
       descricao: ['']
     });
   }

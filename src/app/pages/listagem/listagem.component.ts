@@ -12,6 +12,7 @@ export class ListagemComponent implements OnInit {
 
   title: String = 'Caelumpic';
   fotos: FotoComponent[] = [];
+  mensagem = '';
 
   constructor(private fotoService: FotoService) {
     console.log('construtor');
@@ -32,6 +33,7 @@ export class ListagemComponent implements OnInit {
     this.fotoService.remove(idFotoParaRemover).subscribe((response: HttpResponse<any>) => {
       console.log('resposta', response);
       this.fotos = this.fotos.filter(foto => foto._id !== idFotoParaRemover);
+      this.mensagem = 'Foto removida';
     });
   }
 

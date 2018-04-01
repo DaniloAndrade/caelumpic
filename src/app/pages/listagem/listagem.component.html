@@ -25,9 +25,12 @@
 <titulo title="Listagem"></titulo>
 
 <div class="container">
+    <p *ngIf="mensagem.length" class="alert alert-info">
+        {{mensagem}}
+    </p>   
     <div class="row">
         <card *ngFor="let foto of fotos | filtraPorTitulo: inputDaBuscar.value" titulo="{{ foto.titulo | uppercase }}" descricao="{{foto.descricao}}"
-            class="col-md-4">
+            class="col-md-4 card-foto">
             <a [routerLink]="['/cadastro', foto._id]">
                 <foto url="{{ foto.url }}" descricao="{{ foto.descricao }}" titulo="{{ foto.titulo }}" class="card-img-top"></foto>
             </a>
