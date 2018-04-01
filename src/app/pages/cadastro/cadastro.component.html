@@ -1,0 +1,45 @@
+<titulo title="Cadastro de Fotos"></titulo>
+
+<div class="container">
+
+    <div class="row">
+
+        
+        <card class="col-md-8" titulo="Formulario">
+            <form (submit)="cadastraFoto($event)" [formGroup]="formCadastro">
+                <div class="form-group">
+                    <label for="url">URL</label>
+                    <input type="text" formControlName="url"  [(ngModel)]="foto.url" name="url" class="form-control" id="url" placeholder="Não digite varios nada">
+                    <span class="form-control alert-danger" *ngIf="getFotoForm('url').invalid && ! getFotoForm('url').pristine">
+                        URL é obrigatória
+                    </span>
+                </div>
+                <div class="form-group">
+                    <label for="titulo">Titulo</label>
+                    <input type="text" name="titulo" formControlName="titulo" [(ngModel)]="foto.titulo" class="form-control" id="titulo" placeholder="Não digite varios nada">
+                    <div *ngIf="getFotoForm('titulo').invalid">
+                        <span class="form-control alert-danger" *ngIf="getFotoForm('titulo').getError('required') && !getFotoForm('titulo').pristine">
+                            Título obrigatório
+                        </span>
+                        <span class="form-control alert-danger" *ngIf="getFotoForm('titulo').getError('maxlength') && !getFotoForm('titulo').pristine">
+                            Título obrigatório
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="descricao">Descricao</label>
+                    <textarea name="descricao" formControlName="descricao" class="form-control" [(ngModel)]="foto.descricao" id="descricao" placeholder="Não digite varios nada">
+                    </textarea>
+                </div>
+                <button tyep="submit" class="btn btn-success" [disabled]="formCadastro.invalid">
+                    {{ labelBotao }}
+                </button>
+                <a [routerLink]="['']" class="btn btn-primary">Voltar</a>
+
+            </form>
+        </card>
+        <card titulo="{{foto.titulo}}" descricao="{{foto.descricao}}" class="col-md-4">
+            <foto url="{{ foto.url }}" descricao="{{ foto.descricao }}" titulo="{{ foto.titulo }}"></foto>
+        </card>
+    </div>
+</div>
